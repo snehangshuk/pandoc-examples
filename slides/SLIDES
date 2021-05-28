@@ -19,12 +19,12 @@
 
 # Case Study
 
-## <img src="img/SwissFlag.png" style="vertical-align:middle"/> Startup Idea
+## <img src="slides/img/SwissFlag.png" style="vertical-align:middle"/> Startup Idea
 
 >- Swiss love their **wine** and cheese
 >- Let's create a *simple* wine tracker system
 
-![](img/matterhorn.jpg)
+![](slides/img/matterhorn.jpg)
 
 ## La Cave Vivante
 
@@ -40,11 +40,11 @@
 
 ## Simple idea
 
-<img src="img/wineBefore.png" style="border:none"/>
+<img src="slides/img/wineBefore.png" style="border:none"/>
 
 ## Simple idea
 
-<img src="img/wineAfter.png" style="border:none"/>
+<img src="slides/img/wineAfter.png" style="border:none"/>
 
 ## Requirements I
 
@@ -76,7 +76,7 @@ The online shop needs to handle:
 
 ## Activity Diagram
 
-![](img/ActivityDiagram.jpeg)
+![](slides/img/ActivityDiagram.jpeg)
 
 >- <span style="font-size: 25pt">Models control flow (of sequence) of activities</span>
 >- <span style="font-size: 25pt">Represents business ideas rather than implementation</span>
