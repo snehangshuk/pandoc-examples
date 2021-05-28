@@ -1,23 +1,30 @@
 ---
+sudo: required
+
+branches:
+  only:
+  - main # Branch from which to publish
+
+services:
+  - docker
+
 before_install:
-  # Install pandoc
-  - sudo apt-get update
-  - sudo apt-get -y install pandoc
-  - pandoc --version
+  - mkdir -p output
+  - docker pull pandoc/core
 
 script:
-  # create docs directory for pandoc output
-  - mkdir docs
-  - git clone https://github.com/hakimel/reveal.js.git docs
-  # Generate reveal.js powered HTML from Markdown
-  - pandoc -t revealjs -s --self-contained slides/SLIDES -V slideNumber=true -o docs/index.html -V theme=solarized
+  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name pandoc -t revealjs -s --self-contained slides/SLIDES -V slideNumber=true -o output/index.html -V theme=solarized
 
-# Deploy to GitHub pages (see https://docs.travis-ci.com/user/deployment/pages/)
+after_error:
+  - docker logs asciidoc-to-html
+
+after_failure:
+  - docker logs asciidoc-to-html
+
 deploy:
   provider: pages
-  local_dir: docs
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
+  github_token: $GH_TOKEN # Set in travis-ci.org dashboard
+  local_dir: output
   on:
     branch: main
