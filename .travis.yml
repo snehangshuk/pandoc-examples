@@ -11,7 +11,7 @@ services:
 before_install:
   - mkdir -p output
   - curl -L https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb > pandoc.deb
-  - dpkg -i pandoc.deb
+  - sudo dpkg -i pandoc.deb
   - cd output && git clone https://github.com/hakimel/reveal.js.git
 
 script:
