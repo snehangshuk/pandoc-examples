@@ -8,8 +8,9 @@ before_install:
 script:
   # create docs directory for pandoc output
   - mkdir docs
+  - git clone https://github.com/hakimel/reveal.js.git docs
   # Generate reveal.js powered HTML from Markdown
-  - pandoc -t revealjs -s --self-contained slides/SLIDES -V slideNumber=true -o index.html -V revealjs-url=https://revealjs.com -V theme=solarized
+  - pandoc -t revealjs -s --self-contained slides/SLIDES -V slideNumber=true -o docs/index.html -V theme=solarized
 
 # Deploy to GitHub pages (see https://docs.travis-ci.com/user/deployment/pages/)
 deploy:
@@ -19,4 +20,4 @@ deploy:
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
-    branch: master
+    branch: main
